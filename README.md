@@ -14,7 +14,6 @@ This project addresses the problem of detecting anomalous images by learning
 only from normal samples during training, making it suitable for real-world
 industrial inspection and monitoring use cases.
 
-
 ## Solution Overview
 
 The system learns a compact representation of normal images using a pretrained
@@ -31,7 +30,6 @@ the threshold are classified as anomalies.
 
 The entire pipeline is deployed as a real-time REST API using FastAPI, enabling
 easy integration into production systems.
-
 
 ## Architecture
 
@@ -52,7 +50,6 @@ Input Image
 → Distance Scoring  
 → Anomaly Decision  
 
-
 ## Demo
 
 ### API Documentation (Swagger UI)
@@ -69,12 +66,10 @@ the learned threshold, and the final anomaly decision.
 
 ![Prediction Example](assets/prediction_example.png)
 
-
 ## API Usage
 
 ### Predict Anomaly
 
-```bash
 curl -X POST "http://127.0.0.1:8000/predict" \
   -H "accept: application/json" \
   -H "Content-Type: multipart/form-data" \
@@ -111,31 +106,40 @@ image-anomaly-detection-api/
 │
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project documentation
+
 The project is structured to clearly separate training, validation, and deployment logic, following production-ready machine learning best practices.
 
 
 ## How to Run
 
 ### 1. Clone the repository
-```bash
+
 git clone https://github.com/khandelwalvanshika151997-cmd/image-anomaly-detection-api.git
 cd image-anomaly-detection-api
 
 ### 2. Create and activate a virtual environment
+
 python -m venv venv
 source venv/bin/activate        # Linux / macOS
 venv\Scripts\activate           # Windows
 
 ### 3. Install dependencies
+
 pip install -r requirements.txt
 
-
 ### 4. Start the FastAPI server
+
 uvicorn src.api:app --reload
 
 ### 5. Open Swagger UI
 Visit:  http://127.0.0.1:8000/docs
 
+## Why This Project
+
+- Solves real-world industrial anomaly detection where labeled defect data is scarce
+- Uses unsupervised learning with only normal samples
+- Designed for real-time deployment via REST API
+- Easily extensible to production systems
 
 ## Results & Observations
 
